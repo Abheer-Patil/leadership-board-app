@@ -11,7 +11,7 @@ module.exports = {
         VALUES ($1, $2, $3,  0, 0, 0)
     `,
   UPDATE_BOOK_RANKINGS: `
-        UPDATE BooksRanking
+        UPDATE book_ranking
         SET 
         daily_downloads = $2,
         weekly_downloads = $3,
@@ -19,7 +19,7 @@ module.exports = {
         WHERE book_id = $1;
     `,
   INSERT_OR_UPDATE: `
-        INSERT INTO BooksRanking (book_id, book_name, daily_downloads, weekly_downloads, monthly_downloads)
+        INSERT INTO book_ranking (book_id, book_name, daily_downloads, weekly_downloads, monthly_downloads)
         VALUES ($1, $2, $3, $4, $5)
         ON CONFLICT (book_id) DO UPDATE
         SET 

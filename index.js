@@ -2,15 +2,13 @@ const express = require("express");
 
 const path = require("path");
 
-var cors = require("cors");
-
+const { requestLogger } = require("./middlewares/interceptor");
 
 const { router } = require("./routes/index");
 
 const app = express();
 
 app.use(cors());
-
 
 require("dotenv").config();
 
@@ -31,6 +29,7 @@ app.use(
 );
 app.use(bodyParser.json());
 
+app.use(requestLogger);
 app.use("/", router);
 
 var server = app.listen(PORT, () => {

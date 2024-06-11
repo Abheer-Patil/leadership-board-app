@@ -28,7 +28,7 @@ class LogManager {
       };
 
       const result = await LogDaoService.createLog(requestPayload);
-
+      
       if (!result) {
         throw createErrorResponse({
           code: 500,
@@ -37,7 +37,11 @@ class LogManager {
         });
       }
 
-      return result;
+      return createResponse({
+        code: 200,
+        message: "OK",
+        data: result,
+      });
     } catch (error) {
       console.error("error while saving log : ", error);
       throw createErrorResponse({

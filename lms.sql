@@ -5,6 +5,8 @@ CREATE TABLE department_ranking (
     previous_week_count BIGINT NOT NULL
 );
 
+ALTER TABLE department_ranking
+ADD CONSTRAINT unique_book_id UNIQUE (department);
 
 CREATE TABLE book_ranking (
     id SERIAL PRIMARY KEY,
@@ -14,6 +16,10 @@ CREATE TABLE book_ranking (
     weekly_downloads BIGINT NOT NULL,
     monthly_downloads BIGINT NOT NULL,
 );
+
+ALTER TABLE book_ranking
+ADD CONSTRAINT unique_book_id UNIQUE (book_id);
+
 
 
 CREATE TABLE book_downloads_log (

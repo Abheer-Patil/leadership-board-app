@@ -3,19 +3,19 @@ const db = require("../../config/Db");
 
 class BookRankingService {
   static async createOrUpdateBookRanking({
-    bookId,
-    bookName,
-    dailyDownloads,
-    weeklyDownloads,
-    monthlyDownloads,
+    bookid,
+    bookname,
+    dailydownloads,
+    weeklydownloads,
+    monthlydownloads,
   }) {
     try {
       const result = await db.query(bookRankingQueries.INSERT_OR_UPDATE, [
-        bookId,
-        bookName,
-        dailyDownloads,
-        weeklyDownloads,
-        monthlyDownloads,
+        bookid,
+        bookname,
+        dailydownloads,
+        weeklydownloads,
+        monthlydownloads,
       ]);
 
       if (result && result.rows) {

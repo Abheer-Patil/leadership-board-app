@@ -17,7 +17,7 @@ class BookRankingManager {
           data: {},
         });
       }
-
+      console.log("book ranking to be updated size : ", bookRankings.length);
       bookRankings.forEach((book) => {
         BookRankingService.createOrUpdateBookRanking(book);
       });

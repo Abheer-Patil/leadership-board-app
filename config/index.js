@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8082;
 
 const options = {
   password: process.env.DB_PASSWORD || "root",

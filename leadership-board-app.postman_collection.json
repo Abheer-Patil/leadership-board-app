@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "f98f265c-628e-4153-b4f9-0116441134a8",
+		"name": "leadership-board-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get daily trending",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/trending/books/daily",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trending",
+						"books",
+						"daily"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get weekly trending",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/trending/books/weekly",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trending",
+						"books",
+						"weekly"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get monthly trending",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/trending/books/monthly",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trending",
+						"books",
+						"monthly"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get previous week winner department",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/trending/department/week",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trending",
+						"department",
+						"week"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get trending department",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/trending/department",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"trending",
+						"department"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "download book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\":{\r\n        \"bookId\":\"a1\",\r\n        \"bookName\":\"abcd\",\r\n        \"department\":\"science\",\r\n        \"downloadedBy\":\"abheer\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/download",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"download"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "start book ranking update cron",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/cron/book",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cron",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "start department ranking update cron",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/cron/department",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cron",
+						"department"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

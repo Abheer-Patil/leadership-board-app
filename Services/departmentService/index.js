@@ -5,13 +5,13 @@ class DepartmentRankingService {
   static async createOrUpdateDepartmentRanking({
     department,
     downloads,
-    previousWeekCount,
+    previousweekcount,
   }) {
     try {
       const result = await db.query(departmentRankingQueries.INSERT_OR_UPDATE, [
         department,
         downloads,
-        previousWeekCount,
+        previousweekcount,
       ]);
 
       if (result && result.rows) {

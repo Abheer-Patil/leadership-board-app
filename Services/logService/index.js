@@ -11,11 +11,10 @@ class LogDaoService {
         downloadedBy,
       ]);
 
-      if (!result || !result?.rows) {
+      if (!result || !result.rows) {
         return null;
       }
-
-      return result?.rows;
+      return result.rows;
     } catch (error) {
       console.error("error while saving log : ", error);
       return null;
@@ -39,12 +38,9 @@ class LogDaoService {
     }
   }
 
-
   static async fetchCumulativeDepartmentRankings() {
     try {
-      const result = await db.query(
-        logQueries.FETCH_DEPARTMENT_RANKINGS
-      );
+      const result = await db.query(logQueries.FETCH_DEPARTMENT_RANKINGS);
 
       if (!result || !result?.rows) {
         return [];

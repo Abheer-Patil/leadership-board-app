@@ -13,19 +13,19 @@ module.exports = {
       WITH daily AS (
         SELECT book_id, COUNT(*) AS downloads
         FROM book_downloads_log
-        WHERE date >= NOW() - INTERVAL '1 day'
+        WHERE created >= NOW() - INTERVAL '1 day'
         GROUP BY book_id
       ),
       weekly AS (
         SELECT book_id, COUNT(*) AS downloads
         FROM book_downloads_log
-        WHERE date >= NOW() - INTERVAL '1 week'
+        WHERE created >= NOW() - INTERVAL '1 week'
         GROUP BY book_id
       ),
       monthly AS (
         SELECT book_id, COUNT(*) AS downloads
         FROM book_downloads_log
-        WHERE date >= NOW() - INTERVAL '1 month'
+        WHERE created >= NOW() - INTERVAL '1 month'
         GROUP BY book_id
       )
       SELECT 
@@ -44,15 +44,15 @@ module.exports = {
     `,
   FETCH_DEPARTMENT_RANKINGS: `
       WITH currentDownloads AS (
-        SELECT department, SUM(downloads) AS totalDownloads
+        SELECT department, COUNT(*) AS totalDownloads
         FROM book_downloads_log
-        WHERE date >= NOW() - INTERVAL '1 day'
+        WHERE created >= NOW() - INTERVAL '1 day'
         GROUP BY department
       ),
       previousWeekDownloads AS (
-        SELECT department, SUM(downloads) AS previousWeekDownloads
+        SELECT department, COUNT(*) AS previousWeekDownloads
         FROM book_downloads_log
-        WHERE date >= NOW() - INTERVAL '2 weeks' AND date < NOW() - INTERVAL '1 week'
+        WHERE created >= NOW() - INTERVAL '2 weeks' AND created < NOW() - INTERVAL '1 week'
         GROUP BY department
       ),
       combined AS (
