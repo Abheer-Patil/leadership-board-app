@@ -8,6 +8,13 @@ const {
 } = require("../../modules/response");
 
 class DepartmentRankingManager {
+  /**
+   * Updates the cumulative department rankings.
+   * Fetches cumulative department rankings and updates them using DepartmentRankingService.
+   * Logs the rankings and handles errors.
+   *
+   * @returns {Promise<null>} Returns null on success or failure.
+   */
   static async updateDepartmentRankings() {
     try {
       const departmentRankings =
@@ -33,6 +40,14 @@ class DepartmentRankingManager {
     }
   }
 
+  /**
+   * Fetches the top five department rankings.
+   * Retrieves the top five department rankings using DepartmentRankingService.
+   * Logs errors and throws a formatted error response if fetching fails.
+   *
+   * @returns {Promise<object>} Response object with the top five department rankings data.
+   * @throws {object} Formatted error response on failure.
+   */
   static async fetchTopFiveDepartmentRankings() {
     try {
       const departmentRankings =
@@ -61,6 +76,14 @@ class DepartmentRankingManager {
     }
   }
 
+  /**
+   * Fetches the previous week's winner.
+   * Retrieves the previous week's winning department using DepartmentRankingService.
+   * Logs errors and throws a formatted error response if fetching fails.
+   *
+   * @returns {Promise<object>} Response object with the previous week's winning department data.
+   * @throws {object} Formatted error response on failure.
+   */
   static async fetchPreviousWeekWinner() {
     try {
       const departmentRankings =

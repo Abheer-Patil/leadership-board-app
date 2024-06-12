@@ -1,3 +1,20 @@
+CREATE TABLE IF NOT EXISTS public.book_table (
+    book_id uuid NOT NULL,
+    isbn character varying(255) COLLATE pg_catalog."default",
+    active boolean DEFAULT true,
+    author character varying(255) COLLATE pg_catalog."default",
+    availability boolean DEFAULT true,
+    created timestamp(6) without time zone,
+    department character varying(255) COLLATE pg_catalog."default",
+    genre character varying(255) COLLATE pg_catalog."default",
+    publication_year character varying(255) COLLATE pg_catalog."default",
+    title character varying(255) COLLATE pg_catalog."default",
+    updated timestamp(6) without time zone,
+    available boolean DEFAULT true,
+    CONSTRAINT book_table_pkey PRIMARY KEY (book_id),
+    CONSTRAINT ukoc2n48o9cff0kqkpyc05d6rtn UNIQUE (isbn)
+)
+
 CREATE TABLE department_ranking (
     id SERIAL PRIMARY KEY,
     department VARCHAR(255) NOT NULL,

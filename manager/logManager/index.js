@@ -5,6 +5,19 @@ const {
 } = require("../../modules/response");
 
 class LogManager {
+  /**
+   * Creates a download log.
+   * Validates the input parameters and creates a log entry using LogDaoService.
+   * Logs errors and throws a formatted error response if creation fails.
+   *
+   * @param {object} logData - The data required to create a download log.
+   * @param {string} logData.bookId - The ID of the book.
+   * @param {string} logData.bookName - The name of the book.
+   * @param {string} logData.department - The department associated with the download.
+   * @param {string} logData.downloadedBy - The identifier of the person who downloaded the book.
+   * @returns {Promise<object>} Response object with the created log data.
+   * @throws {object} Formatted error response on failure.
+   */
   static async createDownloadLog({
     bookId,
     bookName,
@@ -28,7 +41,7 @@ class LogManager {
       };
 
       const result = await LogDaoService.createLog(requestPayload);
-      
+
       if (!result) {
         throw createErrorResponse({
           code: 500,

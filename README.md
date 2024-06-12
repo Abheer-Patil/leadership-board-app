@@ -16,14 +16,14 @@ Technologies used : Javascript, Node js, Express js and postgresQL
 
 # Working
 
-1. Book download data - Here using the book download logs API with which we can capture each download with timestamp
+1. Book download data - Here using the book download log API with which we can capture each download with timestamp
    which will help us in accumulating the data.
 
 2. Book Rankings - every hour a cron is being run to take cumulative data of daily, weekly, monthly downloads
-   from download logs.
+   from download logs, also a manual api is being given to trigger and update the rankings.
 
-3. Department Rankings - every hour a cron is being run to take cumulative data of weekly and fresh downloads by department
-   from download logs.
+3. Department Rankings - every day a cron is being run to take cumulative data of weekly and fresh downloads by department
+   from download logs, , also a manual api is being given trigger and update the rankings.
 
 # How to use
 
